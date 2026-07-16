@@ -90,4 +90,73 @@ print("안녕하" + "세요")  # 안녕하세요
 # ================================
 print("=== 자주 하는 실수 ===")
 
-print(0.1 + 0.8)
+print(0.1 + 0.8)  # 0.9
+# 위 상황에서는 출력되지만
+# 가끔 컴퓨터 내부 연산 과정에서 아주 작은 오차가 발생하는 경우도 있음
+
+# 작은 오차 해결법
+# round() 사용해서 반올림
+print(round(0.1 + 0.8, 2))  # 소수 둘째 자리를 반올림해서 0.9 출력
+
+# str과 int/float은 덧셈 불가
+# print("123" + 456)  # TypeError 발생
+
+print(10 / 2)  # 5.0 (나눗셈은 결과가 딱 떨어져도 무조건 float)
+print(type(10 / 2))  # <class 'float'>
+
+# 실습 1
+age = 24  # int
+print(age)
+print("age")
+tall = 169.1  # float
+print(tall)
+print("tall")
+korea = "서울"  # str
+print(korea)
+print("korea")
+YES = True  # bool
+print(YES)
+print("YES")
+
+# 실습 2
+age = 24  # <class 'int'>
+print(type(age))
+tall = 169.1  # <class 'float'>
+print(type(tall))
+korea = "서울"  # <class 'str'>
+print(type(korea))
+YES = True  # <class 'bool'>
+print(type(YES))
+
+# 실습 3
+
+# 100의 자료형 예측 -> int
+print(type(100))  # <class 'int'>
+# 100.0의 자료형 예측 -> float
+print(type(100.0))  # <class 'float'>
+# "100"의 자료형 예측 -> str
+print(type("100"))  # <class 'str'>
+
+# 실습 4
+print(3 + 5)  # 8
+print("3" + "5")  # 35
+print("35" + "45")  # 3545
+
+# 실습 5
+# 3 > 2 인지 예측
+print(3 > 2)  # True
+print(type(3 > 2))  # <class 'bool'>
+
+# 5 == 5 인지 예측
+print(5 == 5)  # True
+print(type(5 == 5))  # <class 'bool'>
+
+# 실습 6
+age = 24
+print(age, type(age))  # <class 'int'>
+
+height = 112.4
+print(height, type(height))  # <class 'float'>
+
+friend = "79"
+print(friend, type(friend))  # <class 'str'>
