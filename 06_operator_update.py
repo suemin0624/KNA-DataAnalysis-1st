@@ -47,4 +47,29 @@ print("안녕 " + "하세요")
 print("안녕" + " " + "하세요")
 
 # 문자열 곱하기
-print("안녕" * 5)  #
+print("안녕" * 5)  # 안녕안녕안녕안녕안녕
+
+# 문자열에 연산자를 사용할 경우 모두 이어져서 나옴
+
+# 실습 1
+print(3 + 5)  # 8
+print(3 - 5)  # -2
+print(3 * 5)  # 15
+print(5 / 3)  # 1.6666666666666667
+print(5 // 3)  # 1
+print(5 % 3)  # 2
+print(5**3)  # 125
+
+korean_score = 75
+math_score = 100
+english_score = 90
+mean = (
+    korean_score + math_score + english_score
+) / 3  # 평균 : 세 과목의 합을 먼저 구한 뒤 나누기 3을 해줌
+print(mean)
+area = 3**2  # 변의 길이 : 3
+print(area)
+volume = 3 * 4 * 5  # 가로 : 3, 세로 : 4, 높이 : 5
+print(volume)
+
+print("예상결과 :", "평균 :", mean, "넓이 :", area, "부피 :", volume)
