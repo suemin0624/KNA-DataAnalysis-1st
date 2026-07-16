@@ -51,7 +51,7 @@ print("안녕" * 5)  # 안녕안녕안녕안녕안녕
 
 # 문자열에 연산자를 사용할 경우 모두 이어져서 나옴
 
-# 실습 1
+"""실습 1"""
 print(3 + 5)  # 8
 print(3 - 5)  # -2
 print(3 * 5)  # 15
@@ -60,7 +60,7 @@ print(5 // 3)  # 1
 print(5 % 3)  # 2
 print(5**3)  # 125
 
-# 실습 2
+"""실습 2"""
 korean_score = 75
 math_score = 100
 english_score = 90
@@ -140,6 +140,7 @@ print(not 5 == 5)  # False
 # nor True로 동작해서 True를 뒤집어 False를 반환
 # 반환받은 False라는 값을 print가 터미널로 출력
 
+"""실습 3"""
 print(4 == 23)  # False
 print(4 != 23)  # True
 print(4 > 23)  # False
@@ -154,7 +155,7 @@ print(4 < 12.1)  # True
 print(4 >= 12.1)  # False
 print(4 <= 12.1)  # True
 
-# 실습 4
+"""실습 4"""
 temp = 85
 print(temp >= 60 and temp <= 90)  # True
 
@@ -163,7 +164,7 @@ print(pre >= 3 and pre <= 7)  # True
 
 print(temp >= 60 and temp <= 90 and pre >= 3 and pre <= 7)  # True
 
-# 실습 5
+"""실습 5"""
 stock = 122
 stock += 5  # 입고
 print(stock)  # 재고 : 127
@@ -181,6 +182,6 @@ total_time = 24
 print(run_time / total_time * 100)  # 가동률 : 87.5
 
 runtime = 500
-print(runtime // 60)  # 시간
+print(runtime // 60)  # 시간 : 8
 
-print(runtime % 60)
+print(runtime % 60)  # 분 : 20
