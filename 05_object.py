@@ -104,7 +104,7 @@ print(round(0.1 + 0.8, 2))  # 소수 둘째 자리를 반올림해서 0.9 출력
 print(10 / 2)  # 5.0 (나눗셈은 결과가 딱 떨어져도 무조건 float)
 print(type(10 / 2))  # <class 'float'>
 
-# 실습 1
+"""실습 1"""
 age = 24  # int
 print(age)
 print("age")
@@ -118,7 +118,7 @@ YES = True  # bool
 print(YES)
 print("YES")
 
-# 실습 2
+"""실습 2"""
 age = 24  # <class 'int'>
 print(type(age))
 tall = 169.1  # <class 'float'>
@@ -128,7 +128,7 @@ print(type(korea))
 YES = True  # <class 'bool'>
 print(type(YES))
 
-# 실습 3
+"""실습 3"""
 
 # 100의 자료형 예측 -> int
 print(type(100))  # <class 'int'>
@@ -136,13 +136,12 @@ print(type(100))  # <class 'int'>
 print(type(100.0))  # <class 'float'>
 # "100"의 자료형 예측 -> str
 print(type("100"))  # <class 'str'>
-
-# 실습 4
+"""실습 4"""
 print(3 + 5)  # 8
 print("3" + "5")  # 35
 print("35" + "45")  # 3545
 
-# 실습 5
+"""실습 5"""
 # 3 > 2 인지 예측
 print(3 > 2)  # True
 print(type(3 > 2))  # <class 'bool'>
@@ -151,12 +150,21 @@ print(type(3 > 2))  # <class 'bool'>
 print(5 == 5)  # True
 print(type(5 == 5))  # <class 'bool'>
 
-# 실습 6
+"""실습 6"""
 age = 24
-print(age, type(age))  # <class 'int'>
+print(age, type(age))  # 24 <class 'int'>
 
 height = 112.4
-print(height, type(height))  # <class 'float'>
+print(height, type(height))  # 112.4 <class 'float'>
 
 friend = "79"
-print(friend, type(friend))  # <class 'str'>
+print(friend, type(friend))  # 79 <class 'str'>
+
+"""실습 7"""
+device_temp = 42.3  # float
+
+check_count = 3  # int
+
+device_name = "google"  # str
+
+is_normal = True  # bool
