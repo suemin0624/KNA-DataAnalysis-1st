@@ -215,3 +215,384 @@ email = "hong@company.com"
 at = email.find("@")  # @ 위치의 인덱스인 4가 할당
 user_id = email[:at]  # hong이라는 사용자의 아이디만 추출
 print(user_id)
+
+# SQE-00Q8이라는 설비의 SQE만 뽑아내기 (find와 슬라이싱 사용)
+sqe = "SQE-00Q8"
+
+# sqe_index = sqe.find("SQE")
+# print(sqe_index) # 0
+
+sqe_index = sqe.find("-")
+print(sqe_index)  # 3
+sqe_fin = sqe[:sqe_index]  # sqe[0:3] > SQE
+print(sqe_fin)  # SQE
+
+# find에서 했던 SQE 뽑아내기 실습 # index 사용으로 바꾸기
+sqe_index = sqe.index("-")
+
+# sqe_find = sqe.index("/") # /가 없으니 Error 나고 중단
+# ===============================================
+
+email = "suemin0624@gmail.com"
+at = email.index("@")  # 5
+print(email[0:at])  # suemin0624
+print(email[:at])  # 시작 번호가 0이라면 start 생략 가능
+print(email[at:])  # 시작 번호가 0이라면 start 생략 가능
+print(email[at + 1 :])  # 끝까지 출력하고 싶고, 뒤에 몇 글자가 있는지 모르니 생략
+
+# ====================================
+
+# 문자열에서 특정 문자열의 갯수 세기
+
+str = "a, b, c, d, e, a, a"
+
+# a의 갯수 세기
+print(str.count("a"))  # 3
+
+# ,의 갯수 세기
+print(str.count(","))  # 6
+
+print(str.count(", "))  # 5 # count로 찾는 문자열과 완전히 동일해야 갯수를 셈
+
+# ==========================
+print("=== startswith() ===")
+
+# 특정 문자열로 시작하는지 검사
+# True/False (불리언)
+
+# EQP로 시작하는지 검사하기
+print("EQP-001".startswith("EQP"))
+
+# 변수 활용
+eqp = "EQP"
+print("EQP-001".startswith(eqp))
+# 주의사항) 변수명은 따옴표 감싸기 금지
+
+# ============================
+print("=== endswith() ===")
+
+# 특정 문자열로 끝나는지 확인
+# True / False로 변환
+
+str2 = "월요일입니다 ! 여러분은 할 수 있어요!"
+
+print(str2.endswith("!"))  # True
+print(str2.endswith("요!"))  # True
+print(str2.endswith("음!"))  # False
+print(str2.endswith("월요일입니다 ! 여러분은 할 수 있어요!"))  # True
+print(str2.endswith("월요일입니다 !     여러분은 할 수 있어요!"))  # False
+print(str2.endswith("월요일입니다 ! 여러분은 할 수 있어요! "))  # False
+print(str2.endswith(" 월요일입니다 ! 여러분은 할 수 있어요!"))  # True
+
+print(str2)  # 원래 할당한 문자를 결과로 출력
+
+""" 실습 startswith / endswith 학습 """
+file = "sensor_log.csv"
+print(file.startswith("sensor"))  # True
+print(file.endswith(".csv"))  # True
+
+# =================================
+print("=== 값은 객체다 ===")
+
+print(type("잊어먹으면 안돼!!!"))  # <class 'str'>
+print(len("이렇게 썼죠??"))
+# endswith와 len의 차이는?
+# endswith는 .으로 연결
+# .으로 연결하는 이런 도구들은 "메서드"
+# 문자열이나 int, float처럼 특정 자료형(객체) 내부에 포함된 기능
+# len은 . 사용 안 함
+# () -> 함수
+# len과 같이 개발자가 직접 선언하지 않은 기본 제공 함수 "내장 함수"
+
+# "str.startswith("s)"
+# 123.startswith(1)
+# .으로 사용하는 메서드들은 특정 자료형(객체 타입)마다 다름
+# int 자료형의 객체에는 startswith라는 메서드가 없음
+
+# print(len(123)) # len 내장함수는 길이를 반환하기 때문에 int 자료형 사용 불가
+# 메서드 : 문자열마다 딸린 정리.검색 기능 (대문자 바꾸기, 공백 떼기)
+
+# ===================================
+# 재할당 복습
+num = 1
+num = num + 1  # 2
+num += 1  # 3
+# += 은 복합할당연산자 원래 내 자신의 값에 다음 오는 연산자와 값을 적용해서 재할당
+
+# =====================================
+str3 = "abcdefg"
+print(str3)  # abcdefg
+
+str3.upper()  # ABCDEFG > 반환은 대문자인데, 값에 재할당은 X
+print(str3)  # abcdefg > 기존 str3의 값인 소문자를 그대로 출력
+
+# 앞으로 계속 대문자로 변환한 값을 사용하고 싶다면
+# 변수의 재할당
+# 변수 재할당에서 변수 스스로를 부르는 것이 가능
+# 재할당해서 변수 스스로 값을 부르려면 무조건 "재할당"이어야 함
+str3 = str3.upper()
+
+# str4 = str4.upper()
+# 최초 변수 할당 시에는 저장된 값이 없어서
+# 변수 스스로 값을 불러와 할당 불가능
+
+prepare = "ready"
+start = prepare.upper()
+print(start)  # READY
+
+# ===========================
+user_name = "kim chul soo"
+
+# capitalize는 문자열의 첫 글자만 대문자로 변환
+print(user_name.capitalize())  # Kim chul soo
+
+# title은 띄어쓰기 기준으로 각 단어의 첫 글자들을 모두 대문자로 변환
+print(user_name.title())  # Kim Chul Soo
+
+# '를 사용한 경우 다른 단어로 인식
+print("i'm full".title())  # I'M Full
+print("i'm full".title())  # I'M Full
+
+""" 실습 1 """
+print("ABC".isupper())  # True
+print("abc".isupper())  # False
+print("Abc".isupper())  # False
+print("ABC".islower())  # False
+print("abc".islower())  # True
+print("Abc".islower())  # False
+
+""" 실습 5 """
+file = "Sensor_LOG.csv"
+new_file = file.lower()
+print(new_file.startswith("sensor"))  # True
+print(new_file.endswith("csv"))  # True
+
+""" 실습 2 """
+a = "WARNING"
+b = a.lower()
+print(b)  # warning
+
+# 공백 제거
+# .strip(): 앞과 뒤의 모든 공백 제거 (중간 띄어쓰기는 그대로 유지)
+# .lstrip(): 왼쪽 공백만 제거
+# .rstrip(): 오른쪽 공백만 제거
+
+raw = "  정상   "
+print(raw.strip())  # "정상"
+print(raw.lstrip())  # "정상   "
+print(raw.rstrip())  # "   정상"
+
+# 문자열의 가운데 공백은 strip으로 지우지 못 함
+print("   정   상   ".strip())  # "정   상"
+
+print(raw)  # "   정상   "
+# strip은 재할당이나 새 변수에 할당하지 않는 이상 휘발
+
+# strip으로 문자 제거
+str4 = "===정상==="
+print(str4.strip("="))  # 정상
+# 인자로 전달한 양 끝의 =이 모두 지워짐
+
+str5 = "=정상========="
+print(str5.strip("="))  # 정상
+# 갯수 상관 없이 인자로 전달한 문자를 무조건 삭제
+
+print(str5.strip("= "))  # 정상
+# strip 자체가 공백을 지우는 것이기 때문에
+# 공백 상관없이 양 끝의 해당 문자열 삭제
+
+str6 = "==정==상===="
+print(str6.strip("="))  # 정==상
+# 글자 중간에 있는 문자열은 건드리지 않음
+
+
+""" 실습 7 """
+a = " 가동중 "
+print(a.strip())  # 가동중
+
+# 메서드 연결해서 쓰기 (체이닝)
+# 메서드 뒤에 또 메서드를 점으로 이어 붙이기
+# ex) text.strip().lower()
+# 읽는 순서는 왼쪽에서 오른쪽으로
+
+# 체이닝 X
+raw = "      NORMAL      "
+step1 = raw.strip()  # "NORMAL"
+step2 = step1.lower()  # "normal"
+
+# 체이닝 X, 기존 변수에 재할당
+raw = raw.strip()  # "NORMAL"
+raw = raw.lower()  # "normal"
+# 체이닝 O
+chain = raw.strip().lower()  # "normal"
+
+# 기존 변수에 재할당도 가능
+raw = raw.strip().lower()
+
+# 변수에 할당하지 않고 사용 가능
+print(raw.strip().lower())
+
+""" 실습 11 """
+str = "     Warning     "
+print("[" + str.lower().strip() + "]")  # "[warning]"
+
+
+str1 = str.lower()
+print("[" + str1 + "]")  # "[   warning   ]"
+str2 = str1.strip()
+print("[" + str2 + "]")  # "[warning]"
+
+
+# strip() 메서드에 인자로 들어가는 문자열은
+# 완전히 동일하지 않아도 전부 삭제
+str8 = "aaab 이렇게? cd"
+print(str8.strip("abcd"))  # " 이렇게?"
+print(str8.strip("abcd "))  # "이렇게?"
+
+# 지금 출력 결과는 " 이렇게? " 이렇게 나오고 있어서
+# 생각했을 때 ==처럼 정확하게 "abcd" 순서가 아니라
+# strip이 안 될 줄 알았는데 실험 결과를 보니 순서랑 상관없이
+# 인자로 전달한 문자열에 해당하는 글자가 확인하는 문자열 양 끝에
+# 하나라도 있으면 동작하는 것 같아
+# 내가 이해한 게 맞아?
+# 그렇다면 왜 이렇게 동작하는 거야?
+
+# ====================================
+print("=== replace() ===")
+
+# 특정 문자열을 제거하거나 치환할 때 사용
+# .replace("바꾸고 싶은 문자열", "바꿀 문자열")
+# 제거할 때는 인자의 두 번째를 ""(빈 문자열)로 작성
+print("정 상 작 동".replace(" ", ""))  # 정상가동 (중간 공백 제거)
+print("   정     상  가동".replace("  ", ""))  # 정상가동 (모든 공백 제거)
+print(
+    "   정     상  가동".replace("   ", "")
+)  # 정 상 가 동 (공백이 2칸 붙어있는 경우만 제거)
+# " 정 상 가 동"
+print("고장".replace("고장", "fault"))  # fault
+print("고장".replace("고", "fault"))  # fault장
+
+# 단어 치환
+str9 = "설비 정상 가동"
+print(str9.replace("정상", "점검"))  # 설비 점검 가동
+
+# replace() 체이닝
+num = "   010-1234-1234   "
+num = num.replace(" ", "").replace("-", "")
+print(num)
+
+# ======================================
+# 문자열 자르기
+# 결과는 대괄호에 감싸진 "리스트" 자료형
+# 리스트는 순서가 있기 때문에 왼쪽에서부터 0으로 시작하는 인덱스가 자동 생성
+
+drinks = "에스프레소 아메리카노 카페라떼"
+print(drinks.split())  # 인자를 보내지 않음
+# "'띄어쓰기"를 기준으로 나뉘어진 세 개의 문자열을 대괄호에 감싸서 반환
+
+# 구분자를 특정하고 싶은 경우
+fruits_list = "딸기, 거봉, 키위, 사쿠란보"  # 문자열 콤마를 기준으로 분할
+print(fruits_list.split(","))
+# 거봉만 출력하기
+print(fruits_list[3])
+
+# ['딸기', '거봉', '키위', '사쿠란보'] > 공백 그대로 유지
+# fruits2 = "딸기, 거봉, 키위, 사쿠란보"
+# print(fruits2.split(","))  # 문자열 콤마+공백 1칸을 기준으로 분할
+# ['딸기', ' 거봉', ' 키위', ' 사쿠란보']
+
+"""실습 2"""
+# a = "PUMP A 03"  # split - 공백 기준으로 나누기
+# print(a.split())  # ['PUMP', 'A', '03']
+
+"""실습 3"""
+word = "a, b, c, d"
+print(word.split(","))  # ['a', ' b', ' c', ' d']
+
+"""실습 5"""
+list = ["2025", "01", "15"]
+print("-".join(list))  # 2025-01-15
+
+"""pyThon"""
+a = "python"  # pyThon 출력
+print(a[:2] + a[2].upper() + a[3:])  # pyThon
+
+# 다른 방법
+print(a.split("t"))  # ["py", "hon"]
+print("T".join(a.split("t")))  # "pyThon"
+print(a[2].upper().join(a.split("t")))  # "pyThon"
+
+# ==============================
+print("=== print 함수의 sep, end ===")
+
+print("2026", "07", "27")  # 2026 07 27 (기본적으로는 공백 1칸)
+
+# sep 속성을 사용하면 구분을 공백이 아닌 특정 문자열로 가능
+print("2026", "07", "27", sep="살해")  # 2026살해07살해27
+# 공백 대신 sep 소성에 전달한 문자열이 삽입되어 이어짐
+
+print("안녕", "하세")  # 안녕 하세
+print("안녕", "하세", end="요")  # 안녕 하세요
+# end 속성 사용 시 출력문 마지막에 해당 문자열이 삽입 됨
+# print("안녕", "하세", end="요", "ㅎㅎ") # end 속성 뒤에 인자 추가 불가
+
+# print 함수 + 사용 시 sep과 end
+print("안녕" + "하세", end="요" + "이렇게?")  # 정상 동작
+
+# 기본적으로 print문에는 sep으로 공백 한 칸,
+# end로 \n(줄바꿈)이 적용되어 있음
+# 근데, 개발자가 각 속성을 직접 부여할 경우
+# 기본값이 아닌 전달받은 속성값을 사용
+# print("이런식으로 쓰죠?", "근데 안 보이는 기본값이 있어요", sep =" ", end ="\n")
+
+"""실습 7"""
+date = "2026/07/27"
+new_date = date.split("/")
+print("-".join(new_date))  # 2026-07-27
+
+"""실습 8"""
+machine = "1, NORMAL,25.3"
+update = machine.split(",")
+update_1 = update[1].strip().lower()
+print(update_1)
+
+""" 실습 1"""
+# 출력 결과: 설비 PUMP_A, 온도 36도
+# 기존 방식
+# name = "PUMP_A"
+# temp = 87
+# print("설비" + name + ", 온도 " + str(temp))
+
+# f string 사용
+name = "PUMP_A"
+temp = 87
+print(f"설비{name}, 온도{temp}도")
+# 따옴표 밖에 f 작성하기
+# 변수명은 꼭 {중괄호}에 감싸기
+
+# f-string 연산
+hour = 10
+
+# 우리는 하루에 8시간 수업을 듣고, 이는 480분입니다.
+print(f"우리는 하루에 {hour}시간 수업을 듣고, 이는 {hour * 60}분입니다.")
+
+""" 실습 2 """
+score_1 = 75
+score_2 = 58
+score_3 = 96
+
+print(f"평균 : {(score_1 + score_2 + score_3) / 3}")
+
+""" 실습 3 """
+value = 87.456
+print(f"{value}")
+print(f"{value:.1f}")  # 소수점 첫째자리까지 출력
+print(f"{value:.2f}")  # 소수점 둘째자리까지 출력
+
+""" 실습 4"""
+data = " 5, sensor_2, WARNING, 0.78912 "
+parts = data.strip().split(",")
+sensor = parts[1].strip()
+status = parts[2].strip().lower()
+value = float(parts[3].strip())
+print(f"[센서 {sensor}] 상태 {status},측정값 {value:.2f}")
