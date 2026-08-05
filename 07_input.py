@@ -62,7 +62,8 @@
 # print("이름:", name, "나이:", age) # 이름: sumin, 나이: 24
 
 # =============================
-# 실습 1
+"""실습 1"""
+
 # name = input("이름 :")
 # print("안녕하세요" + name + "님!") --- + 써야 띄어쓰기 없이 출력됨
 
@@ -132,23 +133,25 @@
 # g = int(false) # Error, f가 소문자먄 "변수"라고 인지를 하기 때문에 false라는 변수가 없어서 에러가 남
 
 # ============================
-# 실습 2
+"""실습 2"""
 # country = input("거주 국가 : ")
 # city = input("거주 도시 : ")
 # print(country, "의", city, "에서 거주하시는군요!")
 
-# 실습 3
+"""실습 3"""
 # score_1 = int(input("점수 1: "))
 # score_2 = int(input("점수 2: "))
 # print(" 점수의 합 ", score_1 + score_2)
 # print(" 점수의 차 ", score_1 - score_2)
 
+"""실습 4"""
 # temp = int(input("온도 입력 : "))
 # print("출력 결과 1 (80도 초과) : ", temp > 80)
 # print("출력 결과 2 (0도 이상) : ", temp >= 0)
 
-score_1 = int(input("점수 1 입력 : "))
-score_2 = int(input("점수 2 입력 : "))
-score_3 = int(input("점수 3 입력 : "))
-avg = (score_1 + score_2 + score_3) / 3
-print(" 평균이 90 이하인가요? : ", avg < 90)
+"""실습 5"""
+# score_1 = int(input("점수 1 입력 : "))
+# score_2 = int(input("점수 2 입력 : "))
+# score_3 = int(input("점수 3 입력 : "))
+# avg = (score_1 + score_2 + score_3) / 3
+# print(" 평균이 90 이하인가요? : ", avg < 90)
