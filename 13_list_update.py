@@ -1,7 +1,7 @@
 temps = [1, 5, 2, 7, 4, 8, 10, 3]
 doubled = []
 
-for t in temp:
+for t in temps:
     doubled.append(t * 3)
 
 print(doubled)
