@@ -191,12 +191,25 @@ print(fac.mean(axis=0))  # [49.  4.]
 print(fac.std(axis=0))  # [4. 2.]
 
 # 실습 7) 파일 데이터로 기초 통계 구하기
+# 파일로 저장된 공정 데이터를 불러와 기초 통계 계산
+
 # np.loadtxt로 회전수 열을 파일에서 불러오기
-rpm7 = np.loadtxt("data/10__mct_tool.csv", delimiter=",", skiprows=1, usecols=4)
-print(rpm7.mean())
-print(rpm7.std())
+rpm7 = np.loadtxt("data/10_mct_tool.csv", delimiter=",", skiprows=1, usecols=4)
+# 불러온 배열의 평균과 표준편차 계산
+print(round(rpm7.mean()))  # 평균: 4213
+print(round(rpm7.std(), 2))  # 표준편차: 1144.94
+# 최솟값과 최댓값으로 값의 범위 확인
+print(round(rpm7.max(), 2))  # 최댓값: 4987.0
+print(round(rpm7.min(), 2))  # 최솟값: 58.0
 
 # 실습 8) 필터링과 통계 결합하기
 # 조건으로 값을 골라낸 뒤 그 값들의 통계 계산
-data_bool = np.array([35, 37, 54, 75, 81])
+
+# 토크 배열 준비
+data_bool = np.array([23, 26, 54, 75, 81])
 data_bool_final = data_bool[data_bool > 50]
+# 불리언 인덱싱으로 기준을 넘는 값만 추출
+print(data_bool_final)  # [54 75 81]
+# 추출한 값들의 평균과 개수 계산
+print("평균:", round(data_bool_final.mean(), 2))  # 평균: 70.0
+print("개수:", data_bool_final.size)  # 개수: 3
